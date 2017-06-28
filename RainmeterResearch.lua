@@ -20,8 +20,6 @@ function RainmeterResearch.ResearchStarted(eventCode, craftingSkillType, researc
 	
 	RainmeterResearch.savedVariables[craftingSkillType][researchLineIndex][traitIndex]["duration"] = duration
 	RainmeterResearch.savedVariables[craftingSkillType][researchLineIndex][traitIndex]["finishTime"] = finishTime
-	
-	d("[RainmeterResearch] Research found, ends in " .. RainmeterResearch.ToDDHHMMSS(remaining) .. " at " .. GetDateStringFromTimestamp(finishTime) .. ". Total time: " .. RainmeterResearch.ToDDHHMMSS(duration))
 end -- function
 
 function RainmeterResearch.ResearchCompleted(eventCode, craftingSkillType, researchLineIndex, traitIndex)
@@ -31,10 +29,22 @@ function RainmeterResearch.ResearchCompleted(eventCode, craftingSkillType, resea
 	end -- if
 end -- function
 
+function RainmeterResearch.StableInteractEnd(eventCode)
+	RainmeterResearch.UpdateRiding()
+end -- function
+
 -- Events
 EVENT_MANAGER:RegisterForEvent(RainmeterResearch.name, EVENT_ADD_ON_LOADED, RainmeterResearch.OnAddOnLoaded)
 EVENT_MANAGER:RegisterForEvent(RainmeterResearch.name, EVENT_SMITHING_TRAIT_RESEARCH_STARTED, RainmeterResearch.ResearchStarted)
 EVENT_MANAGER:RegisterForEvent(RainmeterResearch.name, EVENT_SMITHING_TRAIT_RESEARCH_COMPLETED, RainmeterResearch.ResearchCompleted)
+EVENT_MANAGER:RegisterForEvent(RainmeterResearch.name, EVENT_STABLE_INTERACT_END, RainmeterResearch.StableInteractEnd)
+
+function RainmeterResearch.UpdateRiding()
+	local now = GetTimeStamp()
+	local remaining, duration = GetTimeUntilCanBeTrained()
+	local finishTime = now + remaining
+	RainmeterResearch.savedVariables[0] = finishTime
+end -- function
 
 function RainmeterResearch.ForceUpdate()
 	for i = 1, 3 do
@@ -57,6 +67,7 @@ function RainmeterResearch.ForceUpdate()
 			end -- for trait
 		end -- for line
 	end -- for skill
+	RainmeterResearch.UpdateRiding()
 end -- function
 
 function RainmeterResearch.ToDDHHMMSS(timestamp)
