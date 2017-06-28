@@ -1,5 +1,0 @@
-## Title: RainmeterResearch
-## APIVersion: 100019
-## SavedVariables: RainmeterResearchSavedVariables
-
-RainmeterResearch.lua

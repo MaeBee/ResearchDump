@@ -1,0 +1,5 @@
+## Title: ResearchDump
+## APIVersion: 100019
+## SavedVariables: ResearchDumpSavedVariables
+
+ResearchDump.lua
