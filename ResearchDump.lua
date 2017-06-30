@@ -8,7 +8,7 @@ ResearchDump.types = { CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAF
 
 function ResearchDump.OnAddOnLoaded(eventCode, addonName)
 	if addonName == ResearchDump.name then
-		ResearchDump.savedVariables = ZO_SavedVars:New("RainmeterResearchSavedVariables", 1, nil, {})
+		ResearchDump.savedVariables = ZO_SavedVars:New("ResearchDumpSavedVariables", 1, nil, {})
 		ResearchDump.ForceUpdate()
 	end -- if
 end -- function
@@ -94,6 +94,6 @@ function ResearchDump.ToDDHHMMSS(timestamp)
 end -- function
 
 -- Slash Commands
-SLASH_COMMANDS["/rr"] = function(arg)
+SLASH_COMMANDS["/rd"] = function(arg)
 	ResearchDump.ForceUpdate()
 end -- function
