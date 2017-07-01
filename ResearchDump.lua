@@ -42,7 +42,7 @@ EVENT_MANAGER:RegisterForEvent(ResearchDump.name, EVENT_STABLE_INTERACT_END, Res
 function ResearchDump.UpdateRiding()
 	local now = GetTimeStamp()
 	local remaining, duration = GetTimeUntilCanBeTrained()
-	local finishTime = now + remaining
+	local finishTime = now + (remaining / 1000)
 	ResearchDump.savedVariables[0] = finishTime
 end -- function
 
