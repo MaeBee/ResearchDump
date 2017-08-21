@@ -1,5 +1,5 @@
 ## Title: ResearchDump
-## APIVersion: 100019
+## APIVersion: 100019 100020
 ## SavedVariables: ResearchDumpSavedVariables
 
 ResearchDump.lua
