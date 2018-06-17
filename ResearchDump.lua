@@ -2,9 +2,10 @@
 -- by gobbo (@gobbo1008)
 ResearchDump = {}
 ResearchDump.name = "ResearchDump"
-ResearchDump.version = 1.3
+ResearchDump.version = 1.4
 
-ResearchDump.types = { CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING }
+-- 7 is Jewelry, will be replaced with the global once I know what that actually is called. Your move, ESOUI wiki.
+ResearchDump.types = { CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING, 7 }
 
 function ResearchDump.OnAddOnLoaded(eventCode, addonName)
 	if addonName == ResearchDump.name then
@@ -47,7 +48,7 @@ function ResearchDump.UpdateRiding()
 end -- function
 
 function ResearchDump.ForceUpdate()
-	for i = 1, 3 do
+	for i = 1, 4 do
 		local skill = ResearchDump.types[i]
 		ResearchDump.savedVariables[skill] = {}
 		for line = 1, GetNumSmithingResearchLines(skill) do
