@@ -4,8 +4,7 @@ ResearchDump = {}
 ResearchDump.name = "ResearchDump"
 ResearchDump.version = 1.4
 
--- 7 is Jewelry, will be replaced with the global once I know what that actually is called. Your move, ESOUI wiki.
-ResearchDump.types = { CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING, 7 }
+ResearchDump.types = { CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING, CRAFTING_TYPE_JEWELRYCRAFTING }
 
 function ResearchDump.OnAddOnLoaded(eventCode, addonName)
 	if addonName == ResearchDump.name then
