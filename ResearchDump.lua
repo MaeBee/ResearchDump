@@ -2,7 +2,7 @@
 -- by gobbo (@gobbo1008)
 ResearchDump = {}
 ResearchDump.name = "ResearchDump"
-ResearchDump.version = 1.4
+ResearchDump.version = 1.5
 
 ResearchDump.types = { CRAFTING_TYPE_BLACKSMITHING, CRAFTING_TYPE_CLOTHIER, CRAFTING_TYPE_WOODWORKING, CRAFTING_TYPE_JEWELRYCRAFTING }
 
